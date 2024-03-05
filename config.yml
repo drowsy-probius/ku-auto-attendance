@@ -2,7 +2,7 @@ blackboard:
   host: "https://kulms.korea.ac.kr"
   path: "/webapps/bbgs-AttendantManagementSystem-BB5d3914f35b4ad/onlineAttendance"
 
-webhook:
+webhooks:
   - type: "discord"
     url: "https://discord.com/api/webhooks/1234567890/ABCDEFGHIJKLMN"
   - type: "slack"

@@ -43,8 +43,8 @@ def send_message(webhooks: List[dict], message: str):
                 json={"content": message},
                 timeout=30,
             )
-            if not res.ok:
-                warnings.warn(f"Failed to send message to discord: {res.text}")
+            if res.status_code != 200:
+                warnings.warn(f"Failed to send message to discord: {res.text[:300]}")
         elif webhook["type"] == "slack":
             res = requests.post(
                 url=webhook["url"],
@@ -52,5 +52,7 @@ def send_message(webhooks: List[dict], message: str):
                 json={"attachments": [{"text": message}]},
                 timeout=30,
             )
+            if res.status_code != 200:
+                warnings.warn(f"Failed to send message to slack: {res.text[:300]}")
         else:
             warnings.warn(f"Unknown webhook type: {webhook}")

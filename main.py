@@ -119,12 +119,6 @@ def main():
     weekday = now.weekday()
 
     for course in get_of(cfg, "courses"):
-        schedule = get_of(cfg, "schedule")
-        scheduled_time = get_scheduled_time(schedule, yyyymmdd, hhmm, weekday)
-        if scheduled_time is None:
-            continue
-
-        start_time, end_time = scheduled_time
         course_id = get_of(course, "course_id")
         course_pk = get_of(course, "course_pk")
         firstname = get_of(course, "firstname")
@@ -136,6 +130,12 @@ def main():
 
         if firstname == "테스트":
             send_message(webhooks, f"테스트 출석: {course_name}")
+
+        schedule = get_of(course, "schedule")
+        scheduled_time = get_scheduled_time(schedule, yyyymmdd, hhmm, weekday)
+        if scheduled_time is None:
+            continue
+        start_time, end_time = scheduled_time
 
         res = request_attendance(
             attendance_url=attendance_url,
