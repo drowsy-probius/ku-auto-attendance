@@ -115,7 +115,7 @@ def main():
     now = datetime.now()
     yyyymmdd = now.strftime("%Y-%m-%d")
     hhmm_raw = now.strftime("%H%M")
-    hhmm = str(5 * math.floor(int(hhmm_raw) / 5)).zfill(4)  # 5분 단위로 내림
+    hhmm = str(5 * math.ceil(int(hhmm_raw) / 5)).zfill(4)  # 5분 단위로 올림
     weekday = now.weekday()
     print(f"Now: {yyyymmdd} {hhmm} ({weekday})")
 
