@@ -117,6 +117,7 @@ def main():
     hhmm_raw = now.strftime("%H%M")
     hhmm = str(5 * math.floor(int(hhmm_raw) / 5)).zfill(4)  # 5분 단위로 내림
     weekday = now.weekday()
+    print(f"Now: {yyyymmdd} {hhmm} ({weekday})")
 
     for course in get_of(cfg, "courses"):
         course_id = get_of(course, "course_id")
