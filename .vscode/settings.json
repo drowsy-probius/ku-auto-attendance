@@ -1,0 +1,27 @@
+{
+  "editor.formatOnSave": true,
+  "pylint.args": [
+    "--disable=E1120",
+    "--disable=W0105",
+    "--disable=W0223",
+    "--disable=W0401",
+    "--disable=W0702",
+    "--disable=W0718",
+    "--disable=C0116",
+    "--disable=C0115",
+    "--disable=C0114",
+    "--disable=C0103",
+    "--disable=C0206",
+    "--disable=C0207"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
+  "black-formatter.args": [
+    "--target-version=py38",
+    "--target-version=py39",
+    "--target-version=py310"
+  ]
+}

@@ -1,0 +1,30 @@
+blackboard:
+  host: "https://kulms.korea.ac.kr"
+  path: "/webapps/bbgs-AttendantManagementSystem-BB5d3914f35b4ad/onlineAttendance"
+
+webhook:
+  - type: "discord"
+    url: "https://discord.com/api/webhooks/1234567890/ABCDEFGHIJKLMN"
+  - type: "slack"
+    url: "https://hooks.slack.com/services/1234567890/ABCDEFGHIJKLMN"
+
+courses:
+  - name: "인권과성평등교육"
+    course_id: "20222R0136COSE21200"
+    course_pk: "372904"
+    firstname: "테스트"
+    course_name: "222R [서울-학부]프로그래밍언어(PROGRAMMING LANGUAGE)-00분반"
+    campus_nm: "안암"
+    faculty: "학부"
+    user_id: "2018320000"
+    department: "컴퓨터학과"
+    schedule:
+      start_date: "2022-03-02"
+      end_date: "2022-06-20"
+      when:
+        - day_of_week: 1
+          start_time: "0900"
+          end_time: "1015"
+        - day_of_week: 3
+          start_time: "0900"
+          end_time: "1015"

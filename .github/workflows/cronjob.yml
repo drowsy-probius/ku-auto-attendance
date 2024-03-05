@@ -1,0 +1,26 @@
+name: request attendance
+
+on:
+  schedule:
+    - cron: "0,30 8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 * * 1,2,3,4,5,6"
+
+jobs:
+  attendance-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Code
+        run: |
+          python main.py
