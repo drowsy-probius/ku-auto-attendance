@@ -115,7 +115,13 @@ def main():
     now = datetime.now()
     yyyymmdd = now.strftime("%Y-%m-%d")
     hhmm_raw = now.strftime("%H%M")
-    hhmm = str(5 * math.ceil(int(hhmm_raw) / 5)).zfill(4)  # 5분 단위로 올림
+    hh = int(hhmm_raw[:2])
+    mm = int(hhmm_raw[2:])
+    mm_ceil = 15 * math.ceil(mm / 15)  # 15분 단위로 올림
+    if mm_ceil >= 60:
+        hh += mm_ceil // 60
+        mm_ceil %= 60
+    hhmm = f"{hh:02d}{mm_ceil:02d}"
     weekday = now.weekday()
     print(f"Now: {yyyymmdd} {hhmm} ({weekday})")
 
